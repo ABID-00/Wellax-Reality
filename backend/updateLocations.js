@@ -13,14 +13,16 @@ const locationUpdates = [
         coordinates: {
             lat: 19.0330,
             lng: 73.0297
-        }
+        },
+        costPerSqInch:6500,
     },
     {
         name: "wellax2",
         coordinates: {
             lat: 19.0459,
             lng: 73.0697
-        }
+        },
+        costPerSqInch:6000,
     }
 ];
 
