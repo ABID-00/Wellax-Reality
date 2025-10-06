@@ -32,12 +32,15 @@ async function updateLocations() {
             const result = await Property.findOneAndUpdate(
                 { name: update.name },
                 { coordinates: update.coordinates },
+                {costPerSqInch : update.costPerSqInch},
                 { new: true }
             );
             
             if (result) {
                 console.log(`✓ Updated ${update.name}`);
                 console.log(`  Coordinates: ${result.coordinates.lat}, ${result.coordinates.lng}`);
+                console.log(`   Updated ${result.costPerSqInch}`);
+
             } else {
                 console.log(`✗ Property ${update.name} not found`);
             }
