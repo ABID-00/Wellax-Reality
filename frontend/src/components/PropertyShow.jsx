@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import EMICalculator from "./EMICalculator";
 import NearbyPlaces from "./NearbyPlaces";
 import InvestmentAnalysis from "./InvestmentAnalysis";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+// Import modules from "swiper/modules"
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+
 
 const API_URL = "http://localhost:4090";
 
@@ -29,12 +36,31 @@ const PropertyShow = ({ propertyName, onNavigate }) => {
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       <div className="bg-gray-900/60 rounded-xl shadow-xl overflow-hidden border border-gray-800">
-        <div className="flex items-center justify-center min-h-[400px] bg-gradient-to-b from-gray-800 to-gray-900">
-          <img
-            src={property.image}
-            alt={property.name}
-            className="max-w-md max-h-[350px] object-contain"
-          />
+        {/* Carousel */}
+        <div className="flex items-center justify-center min-h-[300px] bg-gradient-to-b from-gray-800 to-gray-900">
+          {property.images && property.images.length > 0 ? (
+            <Swiper
+              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              spaceBetween={10}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
+              className="max-w-md w-full"
+            >
+              {property.images.map((img, index) => (
+                <SwiperSlide key={index}>
+                  <img
+                    src={img}
+                    alt={`${property.name} ${index + 1}`}
+                    className="w-full h-64 object-contain"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            <p className="text-gray-400 text-center">No images available</p>
+          )}
         </div>
         <div className="p-8">
           <h1 className="text-4xl font-bold mb-2 text-white">{property.name}</h1>
@@ -104,9 +130,7 @@ const PropertyShow = ({ propertyName, onNavigate }) => {
         <div className="p-6">
           {activeTab === "overview" && (
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Property Overview
-              </h3>
+              <h3 className="text-2xl font-bold text-white mb-4">Property Overview</h3>
               <div className="space-y-4">
                 <div className="flex justify-between p-4 bg-gray-800 rounded">
                   <span className="font-medium text-gray-200">Property Type:</span>

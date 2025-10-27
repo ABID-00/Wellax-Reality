@@ -4,8 +4,14 @@ const Property = require("./models/property.js");
 const mongo_url = "mongodb://127.0.0.1:27017/wellax";
 
 mongoose.connect(mongo_url)
-    .then(() => console.log("Connected to DB"))
-    .catch(err => console.log("Error:", err));
+    .then(() => {
+        console.log("Connected to DB");
+        checkProperties();
+    })
+    .catch(err => {
+        console.log("Error:", err);
+        mongoose.connection.close();
+    });
 
 async function checkProperties() {
     try {
@@ -28,5 +34,3 @@ async function checkProperties() {
         mongoose.connection.close();
     }
 }
-
-checkProperties();

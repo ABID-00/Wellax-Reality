@@ -28,9 +28,8 @@ const Navbar = ({ onNavigate, user, onLogout }) => {
         </div>
 
         <ul
-          className={`${
-            isOpen ? "flex" : "hidden"
-          } md:flex flex-col md:flex-row absolute md:relative top-16 md:top-0 left-0 right-0 bg-gray-900/95 md:bg-transparent p-6 md:p-0 gap-6 md:items-center transition-all duration-400 ease-in-out shadow-lg md:shadow-none`}
+          className={`${isOpen ? "flex" : "hidden"
+            } md:flex flex-col md:flex-row absolute md:relative top-16 md:top-0 left-0 right-0 bg-gray-900/95 md:bg-transparent p-6 md:p-0 gap-6 md:items-center transition-all duration-400 ease-in-out shadow-lg md:shadow-none`}
         >
           <li>
             <button
@@ -43,17 +42,15 @@ const Navbar = ({ onNavigate, user, onLogout }) => {
               Home
             </button>
           </li>
-          <li>
+          {/* <li>
             <button
-              onClick={() => {
-                onNavigate("story");
-                setIsOpen(false);
-              }}
+              onClick={() => onNavigate("story")}
               className="text-gray-300 hover:text-indigo-300"
             >
               Our Story
             </button>
-          </li>
+          </li> */}
+
 
           <li className="relative">
             <button
@@ -62,9 +59,8 @@ const Navbar = ({ onNavigate, user, onLogout }) => {
             >
               Our Projects
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-300 ${
-                  dropdownOpen ? "rotate-180" : ""
-                }`}
+                className={`w-4 h-4 transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""
+                  }`}
               />
             </button>
 
@@ -91,7 +87,55 @@ const Navbar = ({ onNavigate, user, onLogout }) => {
                     }}
                     className="block px-4 py-2 w-full text-left hover:bg-indigo-700/30 text-gray-200"
                   >
-                    Wellax 2
+                    Suncity Pride
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      onNavigate("property", { name: "Silver Heights" });
+                      setDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                    className="block px-4 py-2 w-full text-left hover:bg-indigo-700/30 text-gray-200"
+                  >
+                    Silver Heights
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      onNavigate("property", { name: "SeaView Towers" });
+                      setDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                    className="block px-4 py-2 w-full text-left hover:bg-indigo-700/30 text-gray-200"
+                  >
+                    SeaView Towers
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      onNavigate("property", { name: "Palm Enclave" });
+                      setDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                    className="block px-4 py-2 w-full text-left hover:bg-indigo-700/30 text-gray-200"
+                  >
+                    Palm Enclave
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      onNavigate("property", { name: "BKC Corporate Hub" });
+                      setDropdownOpen(false);
+                      setIsOpen(false);
+                    }}
+                    className="block px-4 py-2 w-full text-left hover:bg-indigo-700/30 text-gray-200"
+                  >
+                    BKC Corporate Hub
                   </button>
                 </li>
                 <li>
@@ -113,7 +157,7 @@ const Navbar = ({ onNavigate, user, onLogout }) => {
             )}
           </li>
 
-          <li>
+          {/* <li>
             <button
               onClick={() => {
                 onNavigate("contact");
@@ -123,7 +167,7 @@ const Navbar = ({ onNavigate, user, onLogout }) => {
             >
               Contact
             </button>
-          </li>
+          </li> */}
           <li>
             <button
               onClick={() => {
@@ -145,7 +189,7 @@ const Navbar = ({ onNavigate, user, onLogout }) => {
                     onLogout();
                     setIsOpen(false);
                   }}
-                  className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+                  className="px-2.5 py-1.5 bg-red-600 text-white rounded hover:bg-red-700 transition"
                 >
                   Logout
                 </button>
@@ -156,10 +200,11 @@ const Navbar = ({ onNavigate, user, onLogout }) => {
                   onNavigate("auth");
                   setIsOpen(false);
                 }}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-500 hover:to-purple-500 transform hover:scale-105 shadow-md transition"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-md hover:from-indigo-500 hover:to-purple-500 transform hover:scale-105 shadow-sm transition"
               >
-                <User className="w-5 h-5" /> Login / Signup
+                <User className="w-3.5 h-3.5" /> Login / Signup
               </button>
+
             )}
           </li>
         </ul>

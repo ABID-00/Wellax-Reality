@@ -64,7 +64,7 @@ const Auth = ({ onLogin }) => {
 
   return (
     <div className="max-w-md mx-auto mt-10">
-      <div className="bg-white rounded-lg shadow-lg p-8">
+      <div className="bg-blur rounded-lg shadow-lg p-8">
         <h2 className="text-2xl font-bold text-center mb-6">{isLogin ? 'Login' : 'Sign Up'}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
@@ -93,7 +93,7 @@ const Auth = ({ onLogin }) => {
             className="w-full px-4 py-2 border rounded-lg"
             required
           />
-          <button type="submit" className="w-full py-2 bg-gray-900 text-white rounded-lg">
+          <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-lg">
             {isLogin ? 'Login' : 'Sign Up'}
           </button>
         </form>

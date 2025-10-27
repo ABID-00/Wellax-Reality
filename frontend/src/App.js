@@ -7,13 +7,13 @@ import HomePage from "./components/HomePage";
 import PropertyShow from "./components/PropertyShow";
 import Calculator from "./components/Calculator";
 import EnquiryForm from "./components/EnquiryForm";
+import PropertyGallery from "./components/PropertyGallery";
 import Auth from "./Auth";
 
 function AppContent() {
   const [currentPage, setCurrentPage] = useState("home");
   const [params, setParams] = useState({});
   const [user, setUser] = useState(null);
-
   const handleNavigate = (page, pageParams = {}) => {
     setCurrentPage(page);
     setParams(pageParams);
@@ -47,6 +47,8 @@ function AppContent() {
         return <EnquiryForm />;
       case "auth":
         return <Auth onLogin={handleLogin} />;
+      case "story":
+        return <PropertyGallery />;
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }

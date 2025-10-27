@@ -14,7 +14,7 @@ const Calculator = ({ propertyId }) => {
         setProperty(data);
         setCost(data.costPerSqInch * area);
       });
-  }, [propertyId]);
+  }, [propertyId, area]);
 
   const handleChange = (value) => {
     const newArea = parseFloat(value) || 0;
